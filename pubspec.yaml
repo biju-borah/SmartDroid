@@ -61,7 +61,20 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/logo.png
+    - assets/Abacus-lit.png
+    - assets/Abacus-tech.png
+    - assets/C-classes.png
+    - assets/CSS-hack.png
+    - assets/Enigma.png
     - assets/loader.json
+    - assets/working_man.json
+    - assets/sing_song.json
+    - assets/mouse_down.json
+    - assets/play.json
+    - assets/techno.json
+    - assets/culture_bg.json
+    - assets/culture_bg2.json
+    - assets/accounting.json
     - assets/1.jpeg
     - assets/2.jpeg
     - assets/3.jpeg
