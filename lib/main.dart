@@ -1,3 +1,7 @@
+import './events.dart';
+
+import './splash.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import './drawer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
+      home: const Splash(),
     );
   }
 }
@@ -31,12 +35,22 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    final appbarsize = AppBar(
+      title: Text("COMPUTER SCIENCE SOCIETY"),
+    );
     return Scaffold(
-      appBar: AppBar(
-        title: Text("COMPUTER SCIENCE SOCIETY"),
-      ),
+      backgroundColor: Colors.black,
+      appBar: appbarsize,
       drawer: MyDrawer(),
-      body: Logo(),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Logo(appbarsize),
+            Events(),
+          ],
+        ),
+      ),
     );
   }
 }
