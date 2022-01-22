@@ -1,4 +1,7 @@
+import 'package:cssapp/main.dart';
 import 'package:flutter/material.dart';
+import './events_page.dart';
+import 'package:cssapp/home_screen.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
@@ -14,11 +17,21 @@ class MyDrawer extends StatelessWidget {
           ),
           ListTile(
             title: const Text('HOME'),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const HomePage()),
+              );
+            },
           ),
           ListTile(
             title: const Text('EVENTS'),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const EventsPage()),
+              );
+            },
           ),
           ListTile(
             title: const Text('GALLERY'),
@@ -37,3 +50,4 @@ class MyDrawer extends StatelessWidget {
     );
   }
 }
+//niki
