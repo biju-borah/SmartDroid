@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/orange"/>
+    <item android:drawable="@drawable/ic_whatsapp_image_2022_02_25_at_14_14_50" android:gravity="center"/>
+</layer-list>
