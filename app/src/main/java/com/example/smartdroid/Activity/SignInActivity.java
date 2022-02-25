@@ -44,7 +44,7 @@ public class SignInActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         button = findViewById(R.id.signInBtn);
-
+        db = FirebaseFirestore.getInstance();
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken("787951658726-29raq743ktn3a7n0c71v222ian5gs41o.apps.googleusercontent.com")
@@ -79,15 +79,15 @@ public class SignInActivity extends AppCompatActivity {
         }
     }
 
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//
-//        if (mAuth.getCurrentUser() != null) {
-//            finish();
-//            startActivity(new Intent(this, ProfileActivity.class));
-//        }
-//    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (auth.getCurrentUser() != null) {
+            finish();
+            startActivity(new Intent(this, OnBoardingActivity.class));
+        }
+    }
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
 

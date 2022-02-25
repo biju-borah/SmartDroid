@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".Activity.AddActivity">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/layout_button"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:weightSum="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+      <!--Button for choosing image from gallery-->
+      <Button
+          android:id="@+id/btnChoose"
+          android:text="Choose"
+          android:layout_weight="1"
+          android:layout_margin="5dp"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content" />
+
+      <!--Button for uploading image-->
+      <Button
+          android:id="@+id/btnUpload"
+          android:text="Upload"
+          android:layout_weight="1"
+          android:layout_margin="5dp"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/inpName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:hint="Name"
+         />
+    <EditText
+        android:id="@+id/shortDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:hint="Short Description"
+        />
+    <EditText
+        android:id="@+id/longDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:hint="Short Description"
+        />
+    <EditText
+        android:id="@+id/inpAuthor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:hint="Author"
+        />
+    <EditText
+        android:id="@+id/videoUrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:hint="Video / Blog Url"
+        />
+
+  </LinearLayout>
+
+  <!--Image View for showing image chosen from gallery-->
+  <ImageView
+      android:id="@+id/imgView"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent" />
+
+
+</RelativeLayout>
