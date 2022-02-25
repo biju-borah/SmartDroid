@@ -8,4 +8,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="heading">#FF1D1C1C</color>
     <color name="body_text1">#FF3D3D3D</color>
+    <color name="body_text2">#FF616161</color>
 </resources>

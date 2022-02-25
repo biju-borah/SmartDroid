@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartDroid">
         <activity
+            android:name=".Activity.ShowDetailActivity"
+            android:exported="true" />
+        <activity
             android:name=".Activity.OnBoardingActivity"
             android:exported="true" />
         <activity

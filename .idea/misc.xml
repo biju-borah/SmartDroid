@@ -4,9 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/heera/AndroidStudioProjects/SmartDroid/app/src/main/res/drawable/button_bg_dark.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/heera/AndroidStudioProjects/SmartDroid/app/src/main/res/drawable/ic_name.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/heera/AndroidStudioProjects/SmartDroid/app/src/main/res/drawable/outline_border.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/heera/AndroidStudioProjects/SmartDroid/app/src/main/res/drawable/tag.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/heera/AndroidStudioProjects/SmartDroid/app/src/main/res/layout/activity_add.xml" value="0.14666666666666667" />
         <entry key="..\:/Users/heera/AndroidStudioProjects/SmartDroid/app/src/main/res/layout/activity_on_boarding.xml" value="0.13333333333333333" />
+        <entry key="..\:/Users/heera/AndroidStudioProjects/SmartDroid/app/src/main/res/layout/activity_show_detail.xml" value="0.2787427626137304" />
         <entry key="..\:/Users/heera/AndroidStudioProjects/SmartDroid/app/src/main/res/layout/activity_sign_in.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/heera/AndroidStudioProjects/SmartDroid/app/src/main/res/layout/home.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/heera/AndroidStudioProjects/SmartDroid/app/src/main/res/layout/recipe_card.xml" value="0.6175548589341693" />
       </map>
     </option>
   </component>
