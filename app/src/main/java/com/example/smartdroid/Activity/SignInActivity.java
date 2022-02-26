@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.smartdroid.MainActivity;
 import com.example.smartdroid.Model.User;
 import com.example.smartdroid.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -86,7 +87,8 @@ public class SignInActivity extends AppCompatActivity {
 
         if (auth.getCurrentUser() != null) {
             finish();
-            startActivity(new Intent(this, OnBoardingActivity.class));
+            startActivity(new Intent(SignInActivity.this, MainActivity.class));
+
         }
     }
 
@@ -102,13 +104,13 @@ public class SignInActivity extends AppCompatActivity {
                             FirebaseUser user = auth.getCurrentUser();
                             register(user);
                             Toast.makeText(SignInActivity.this, "User Signed In", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(SignInActivity.this, MainActivity.class));
                         } else {
                             Toast.makeText(SignInActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
 
                         }
 
-                        // ...
                     }
                 });
     }
