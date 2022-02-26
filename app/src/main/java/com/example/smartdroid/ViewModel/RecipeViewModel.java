@@ -17,9 +17,10 @@ public class RecipeViewModel extends ViewModel {
 
     public RecipeViewModel() {
         recipeRepository = new RecipeRepository();
-        recipeListMutableLiveData=  recipeRepository.getRecipeListMutableLiveData();
+        recipeListMutableLiveData =  recipeRepository.getRecipeListMutableLiveData();
         mFirestore = FirebaseFirestore.getInstance();
     }
+
 
     public MutableLiveData<ArrayList<Recipe>> getLiveRecipeData() {
         return recipeListMutableLiveData;

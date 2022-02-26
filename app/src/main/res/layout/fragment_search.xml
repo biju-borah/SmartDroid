@@ -20,6 +20,12 @@
             android:iconifiedByDefault="false"
             android:layout_alignParentTop="true"
             />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/searchRecyclerView"
+            android:paddingHorizontal="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
 
     </LinearLayout>
 

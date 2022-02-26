@@ -24,7 +24,6 @@ public class RecipeRepository {
         recipeMutableLiveData = new MutableLiveData<>();
     }
 
-    //get blog from firebaseFirestore
     public MutableLiveData<ArrayList<Recipe>> getRecipeListMutableLiveData() {
         firebaseFirestore.collection("Popular").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override

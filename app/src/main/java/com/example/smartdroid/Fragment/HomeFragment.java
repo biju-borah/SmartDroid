@@ -30,7 +30,7 @@ public class HomeFragment extends Fragment {
     RecyclerView recyclerView;
     private CarouselView carouselView;
 
-    int ad[] = {R.drawable.dummy_img};
+    int ad[] = {R.drawable.dummy_img2,R.drawable.dummy_img4,R.drawable.dummy_img3};
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
