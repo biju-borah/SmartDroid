@@ -26,6 +26,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class AddActivity extends AppCompatActivity {
@@ -38,7 +39,9 @@ public class AddActivity extends AppCompatActivity {
 
     private final int PICK_IMAGE_REQUEST = 22;
 
-    EditText inpIngredient, inpTag;
+    ArrayList<String> tag, ingredient;
+
+    EditText inpIngredient, inpTag, inpShortDesc, inpLongDesc, inpName, inpUrl;
 
     String uuid;
 
@@ -59,6 +62,10 @@ public class AddActivity extends AppCompatActivity {
         inpIngredient = findViewById(R.id.inpIngredient);
         inpTag = findViewById(R.id.inpTag);
         addTag = findViewById(R.id.addTag);
+        inpShortDesc = findViewById(R.id.inpShortDesc);
+        inpLongDesc = findViewById(R.id.inpLongDesc);
+        inpName = findViewById(R.id.inpName);
+        inpUrl = findViewById(R.id.inpUrl);
 
         llIngredient = findViewById(R.id.llIngredient);
         llTag = findViewById(R.id.llTag);
@@ -110,6 +117,7 @@ public class AddActivity extends AppCompatActivity {
 
         gb.setWidth(5);
         textView.setText(inpIngredient.getText().toString());
+        ingredient.add(inpIngredient.getText().toString());
         llIngredient.addView(gb);
         llIngredient.addView(textView);
         inpIngredient.setText("");
@@ -128,6 +136,7 @@ public class AddActivity extends AppCompatActivity {
 
         gb.setWidth(5);
         textView.setText(inpTag.getText().toString());
+        tag.add(inpTag.getText().toString());
         llTag.addView(gb);
         llTag.addView(textView);
         inpTag.setText("");
@@ -199,7 +208,7 @@ public class AddActivity extends AppCompatActivity {
                                     progressDialog.dismiss();
                                     Toast
                                             .makeText(AddActivity.this,
-                                                    "Image Uploaded!!",
+                                                    "Recipe Uploaded!!",
                                                     Toast.LENGTH_SHORT)
                                             .show();
 
@@ -237,7 +246,7 @@ public class AddActivity extends AppCompatActivity {
     }
 
     private void addFirestore(){
-        storageReference.child("users/me/profile.png").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+        storageReference.child("images/" + uuid).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 String generatedFilePath = uri.toString();

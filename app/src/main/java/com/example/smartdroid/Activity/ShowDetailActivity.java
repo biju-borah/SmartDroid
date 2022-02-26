@@ -17,7 +17,7 @@ public class ShowDetailActivity extends AppCompatActivity {
     int star;
     TextView recipeName, shortDesc, authorName;
     ImageView imageView;
-    LinearLayout starLayout;
+    LinearLayout starLayout, llIng;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +31,7 @@ public class ShowDetailActivity extends AppCompatActivity {
         authorName = findViewById(R.id.authorName);
         starLayout = findViewById(R.id.star);
         imageView = findViewById(R.id.recipeImgLarge);
+        llIng = findViewById(R.id.llIng);
 
         recipeName.setText(object.getName());
         shortDesc.setText(object.getShortDesc());
@@ -38,6 +39,7 @@ public class ShowDetailActivity extends AppCompatActivity {
         Glide.with(this).load(object.getImgUrl()).placeholder(R.drawable.loading).into(imageView);
 
         initializeStar(star);
+        initializeIng();
     }
 
     private void initializeStar(int stars){
@@ -48,6 +50,23 @@ public class ShowDetailActivity extends AppCompatActivity {
             img.setMinimumHeight(50);
 
             starLayout.addView(img);
+        }
+    }
+
+    private void initializeIng(){
+        int len = object.getIngredients().size();
+        for (int i = 0; i < len; i++) {
+            TextView gb = new TextView(this);
+            TextView textView = new TextView(this);
+            textView.setBackgroundResource(R.drawable.tag);
+            textView.setPadding(15,5,15,5);
+
+            gb.setWidth(5);
+            textView.setText(object.getIngredients().get(i));
+            textView.setTextSize(20);
+            llIng.addView(gb);
+            llIng.addView(textView);
+
         }
     }
 }
