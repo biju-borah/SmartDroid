@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.SearchFragment">
+    tools:context=".Fragment.BlogFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
             android:id="@+id/floatingActionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="40sp"
+            android:layout_margin="30sp"
             app:backgroundTint="@color/primary"
             app:tint="@android:color/white"
             android:clickable="true"

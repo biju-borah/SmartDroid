@@ -55,8 +55,10 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.profile:
                         selectFrag = account;
+                        break;
                     case R.id.blog:
                         selectFrag = blog;
+                        break;
 
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.flFragment,selectFrag).commit();
