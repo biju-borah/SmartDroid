@@ -6,13 +6,119 @@
     android:layout_height="match_parent"
     tools:context=".Activity.SignInActivity">
 
-    <Button
-        android:id="@+id/signInBtn"
+    <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_logo"
+        android:layout_marginTop="60sp"
+        />
+
+    <TextView
+        android:id="@+id/slideHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello again!"
+        android:textColor="@color/heading"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <TextView
+        android:id="@+id/slideDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Mouth watering recipes are waiting for you"
+        android:textColor="@color/body_text1"
+        android:textAlignment="center"
+        android:paddingHorizontal="80sp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/slideHeading" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40sp"
+        android:layout_marginTop="40sp"
+        android:background="@drawable/input_bg"
+        android:hint="Email"
+        android:paddingVertical="10sp"
+        android:paddingLeft="15sp"
+        android:textColor="@color/heading"
+        app:layout_constraintTop_toBottomOf="@+id/slideDesc"
+        tools:layout_editor_absoluteX="40dp" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40sp"
+        android:layout_marginTop="20sp"
+        android:background="@drawable/input_bg"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:paddingVertical="10sp"
+        android:paddingLeft="15sp"
+        android:textColor="@color/heading"
+        app:layout_constraintTop_toBottomOf="@+id/editText"
+        tools:layout_editor_absoluteX="40dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="150sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:background="@drawable/button_bg_dark"
+        android:paddingHorizontal="15sp"
+        android:text="SignIn"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/editText2"
+        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="150sp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/outline_btn"
+        android:paddingHorizontal="15sp"
+        android:text="Register"
+        android:textAllCaps="false"
+        android:textColor="@color/primary"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="@+id/editText2"
+        app:layout_constraintTop_toTopOf="@+id/button" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30sp"
+        android:text="or continue with"
+        android:textAlignment="center"
+        android:textColor="@color/body_text1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <ImageView
+        android:id="@+id/signInBtn"
+        android:layout_marginTop="5sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_google"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

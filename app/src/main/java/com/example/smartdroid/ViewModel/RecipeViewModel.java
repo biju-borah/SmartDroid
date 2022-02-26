@@ -7,10 +7,11 @@ import com.example.smartdroid.Model.Recipe;
 import com.example.smartdroid.Repository.RecipeRepository;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RecipeViewModel extends ViewModel {
-    MutableLiveData<List<Recipe>> recipeListMutableLiveData;
+    MutableLiveData<ArrayList<Recipe>> recipeListMutableLiveData;
     FirebaseFirestore mFirestore;
     RecipeRepository recipeRepository;
 
@@ -20,7 +21,7 @@ public class RecipeViewModel extends ViewModel {
         mFirestore = FirebaseFirestore.getInstance();
     }
 
-    public MutableLiveData<List<Recipe>> getLiveRecipeData() {
+    public MutableLiveData<ArrayList<Recipe>> getLiveRecipeData() {
         return recipeListMutableLiveData;
     }
 }

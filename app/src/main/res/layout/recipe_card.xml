@@ -36,6 +36,7 @@
 
 
             <TextView
+                android:id="@+id/cardName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Recipe name"
@@ -76,34 +77,35 @@
                     />
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/tagLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="2sp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/tag"
-                    android:text="#tag1"
-                    android:padding="5sp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/tag"
-                    android:text="#tag2"
-                    android:layout_marginHorizontal="8sp"
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@drawable/tag"-->
+<!--                    android:text="#tag1"-->
+<!--                    android:padding="5sp"-->
+<!--                    />-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@drawable/tag"-->
+<!--                    android:text="#tag2"-->
+<!--                    android:layout_marginHorizontal="8sp"-->
 
-                    android:padding="5dp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/tag"
-                    android:text="#tag3"
-                    android:padding="5dp"
-                    />
+<!--                    android:padding="5dp"-->
+<!--                    />-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@drawable/tag"-->
+<!--                    android:text="#tag3"-->
+<!--                    android:padding="5dp"-->
+<!--                    />-->
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RecipeRepository {
-    MutableLiveData<List<Recipe>> recipeListMutableLiveData;
+    MutableLiveData<ArrayList<Recipe>> recipeListMutableLiveData;
     FirebaseFirestore firebaseFirestore;
     MutableLiveData<Recipe> recipeMutableLiveData;
 
@@ -25,11 +25,11 @@ public class RecipeRepository {
     }
 
     //get blog from firebaseFirestore
-    public MutableLiveData<List<Recipe>> getRecipeListMutableLiveData() {
+    public MutableLiveData<ArrayList<Recipe>> getRecipeListMutableLiveData() {
         firebaseFirestore.collection("Popular").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                List<Recipe> RecipeList = new ArrayList<>();
+                ArrayList<Recipe> RecipeList = new ArrayList<>();
                 for (QueryDocumentSnapshot doc : value) {
                     if (doc != null) {
                         RecipeList.add(doc.toObject(Recipe.class));

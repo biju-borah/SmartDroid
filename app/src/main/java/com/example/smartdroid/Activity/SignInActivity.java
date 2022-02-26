@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.smartdroid.Model.User;
@@ -35,7 +36,7 @@ public class SignInActivity extends AppCompatActivity {
     GoogleSignInClient googleSignInClient;
     FirebaseAuth auth;
     FirebaseFirestore db;
-    Button button;
+    ImageView button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

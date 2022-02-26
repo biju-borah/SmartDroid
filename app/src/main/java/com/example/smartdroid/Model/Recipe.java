@@ -10,16 +10,16 @@ public class Recipe {
 
     }
 
-    public Recipe(String name, String imgUrl, String shortDesc, String longDesc, String author, String videoUrl, ArrayList<String> rating, ArrayList<String> tag, ArrayList<String> ingredients) {
+    public Recipe(String name,  ArrayList<String> tag) {
         this.name = name;
-        this.imgUrl = imgUrl;
-        this.shortDesc = shortDesc;
-        this.longDesc = longDesc;
-        this.author = author;
-        this.videoUrl = videoUrl;
-        this.rating = rating;
+//        this.imgUrl = imgUrl;
+//        this.shortDesc = shortDesc;
+//        this.longDesc = longDesc;
+//        this.author = author;
+//        this.videoUrl = videoUrl;
+//        this.rating = rating;
         this.tag = tag;
-        this.ingredients = ingredients;
+//        this.ingredients = ingredients;
     }
     public String getName() {
         return name;
