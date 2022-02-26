@@ -8,81 +8,268 @@
     android:padding="16dp"
     tools:context=".Activity.AddActivity">
 
-  <LinearLayout
+  <ScrollView
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:orientation="vertical">
+      android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/layout_button"
-        android:orientation="horizontal"
-        android:layout_alignParentTop="true"
-        android:weightSum="2"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-      <!--Button for choosing image from gallery-->
-      <Button
-          android:id="@+id/btnChoose"
-          android:text="Choose"
-          android:layout_weight="1"
-          android:layout_margin="5dp"
-          android:layout_width="0dp"
-          android:layout_height="wrap_content" />
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent">
 
-      <!--Button for uploading image-->
-      <Button
-          android:id="@+id/btnUpload"
-          android:text="Upload"
-          android:layout_weight="1"
-          android:layout_margin="5dp"
-          android:layout_width="0dp"
-          android:layout_height="wrap_content" />
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30sp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent">
 
-    <EditText
-        android:id="@+id/inpName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:hint="Name"
-         />
-    <EditText
-        android:id="@+id/inpShortDesc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:hint="Short Description"
-        />
-    <EditText
-        android:id="@+id/intLongDesc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:hint="Short Description"
-        />
-    <EditText
-        android:id="@+id/inpAuthor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:hint="Author"
-        />
-    <EditText
-        android:id="@+id/videoUrl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:hint="Video / Blog Url"
-        />
+          <TextView
+              android:id="@+id/textView"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Add "
+              android:textColor="@color/heading"
+              android:textSize="25sp"
+              android:textStyle="bold" />
 
-  </LinearLayout>
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="your"
+              android:textColor="@color/heading"
+              android:textSize="25sp"
+              android:textStyle="bold" />
 
-  <!--Image View for showing image chosen from gallery-->
-  <ImageView
-      android:id="@+id/imgView"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent" />
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text=" recipe"
+              android:textColor="@color/primary"
+              android:textSize="25sp"
+              android:textStyle="bold" />
+        </LinearLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2sp"
+            android:text="Let your recipes sparkle the chef inside someone"
+            android:textColor="@color/body_text1"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5sp"
+            android:layout_marginTop="40sp"
+            android:text="Recipe name"
+            android:textColor="@color/body_text1"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/inpName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_bg"
+            android:hint="Sample name"
+            android:paddingVertical="10sp"
+            android:paddingLeft="15sp"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5sp"
+            android:layout_marginTop="20sp"
+            android:text="Description"
+            android:textColor="@color/body_text1"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/inpShortDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_bg"
+            android:hint="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae orci ut lacus viverra ullamcorper. Curabitur ultricies in lacus a mollis. Nam sit amet venenatis quam, in varius ante."
+            android:maxLines="4"
+            android:paddingVertical="10sp"
+            android:paddingHorizontal="15sp"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5sp"
+            android:layout_marginTop="20sp"
+            android:text="Ingredients"
+            android:textColor="@color/body_text1"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/llIngredient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="2sp"/>
+
+        <EditText
+            android:id="@+id/inpIngredient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_bg"
+            android:hint="Sample ingredient"
+            android:paddingVertical="10sp"
+            android:paddingLeft="15sp"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/addIngredient"
+            android:layout_marginTop="10sp"
+            android:layout_marginStart="5sp"
+            android:layout_width="wrap_content"
+            android:layout_height="40sp"
+            android:background="@drawable/outline_btn"
+            android:text="Add"
+            android:textAllCaps="false"
+            android:textColor="@color/primary"
+            app:backgroundTint="@null"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5sp"
+            android:layout_marginTop="20sp"
+            android:text="Tags"
+            android:textColor="@color/body_text1"
+            android:textSize="20sp" />
+        <LinearLayout
+            android:id="@+id/llTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="2sp"/>
+
+        <EditText
+            android:id="@+id/inpTag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_bg"
+            android:hint="example: non-veg"
+            android:paddingVertical="10sp"
+            android:paddingLeft="15sp"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/addTag"
+            android:layout_marginTop="10sp"
+            android:layout_marginStart="5sp"
+            android:layout_width="wrap_content"
+            android:layout_height="40sp"
+            android:background="@drawable/outline_btn"
+            android:text="Add"
+            android:textAllCaps="false"
+            android:textColor="@color/primary"
+            app:backgroundTint="@null"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5sp"
+            android:layout_marginTop="20sp"
+            android:text="Step to Cook"
+            android:textColor="@color/body_text1"
+            android:textSize="20sp" />
+
+
+        <EditText
+            android:id="@+id/inpLongDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_bg"
+            android:hint="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae orci ut lacus viverra ullamcorper. Curabitur ultricies in lacus a mollis. Nam sit amet venenatis quam, in varius ante."
+            android:paddingVertical="10sp"
+            android:paddingHorizontal="15sp"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5sp"
+            android:layout_marginTop="20sp"
+            android:text="Blog / Video Url"
+            android:textColor="@color/body_text1"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/inpUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_bg"
+            android:hint="Url"
+            android:paddingVertical="10sp"
+            android:paddingLeft="15sp"
+            android:textSize="16sp" />
+
+        <!--Image View for showing image chosen from gallery-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5sp"
+            android:layout_marginTop="20sp"
+            android:text="Choose an Image"
+            android:textColor="@color/body_text1"
+            android:textSize="20sp" />
+        <ImageView
+            android:id="@+id/imgView"
+            android:layout_width="match_parent"
+            android:layout_height="200sp"
+            android:src="@drawable/placeholder_img"/>
+        <LinearLayout
+            android:id="@+id/layout_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+          <!--Button for choosing image from gallery-->
+          <Button
+              android:id="@+id/btnChoose"
+              android:background="@drawable/button_bg_dark"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_margin="5dp"
+              android:layout_weight="1"
+              android:text="Choose" />
+
+          <!--Button for uploading image-->
+          <Button
+              android:id="@+id/btnUpload"
+              android:background="@drawable/outline_btn"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_margin="5dp"
+              android:textColor="@color/primary"
+              android:layout_weight="1"
+              app:backgroundTint="@null"
+              android:text="Upload" />
+        </LinearLayout>
+      </LinearLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </ScrollView>
 
 </RelativeLayout>

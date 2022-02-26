@@ -11,7 +11,10 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.smartdroid.R;
@@ -27,7 +30,7 @@ import java.util.UUID;
 
 public class AddActivity extends AppCompatActivity {
 
-    private Button btnSelect, btnUpload;
+    private Button btnSelect, btnUpload, addIngredient, addTag;
 
     private ImageView imageView;
 
@@ -35,7 +38,11 @@ public class AddActivity extends AppCompatActivity {
 
     private final int PICK_IMAGE_REQUEST = 22;
 
+    EditText inpIngredient, inpTag;
+
     String uuid;
+
+    LinearLayout llIngredient, llTag;
 
     FirebaseStorage storage;
     StorageReference storageReference;
@@ -45,10 +52,17 @@ public class AddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
 
-        // initialise views
         btnSelect = findViewById(R.id.btnChoose);
         btnUpload = findViewById(R.id.btnUpload);
         imageView = findViewById(R.id.imgView);
+        addIngredient = findViewById(R.id.addIngredient);
+        inpIngredient = findViewById(R.id.inpIngredient);
+        inpTag = findViewById(R.id.inpTag);
+        addTag = findViewById(R.id.addTag);
+
+        llIngredient = findViewById(R.id.llIngredient);
+        llTag = findViewById(R.id.llTag);
+
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
@@ -68,6 +82,56 @@ public class AddActivity extends AppCompatActivity {
                 uploadImage();
             }
         });
+
+        addIngredient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addViewIngredient();
+            }
+        });
+
+        addTag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addViewTag();
+            }
+        });
+    }
+
+    private void  addViewIngredient(){
+        if(inpIngredient.getText().toString().isEmpty()){
+            Toast.makeText(AddActivity.this, "Please add ingredient.. !", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        TextView gb = new TextView(this);
+        TextView textView = new TextView(this);
+        textView.setBackgroundResource(R.drawable.tag);
+        textView.setPadding(15,5,15,5);
+
+        gb.setWidth(5);
+        textView.setText(inpIngredient.getText().toString());
+        llIngredient.addView(gb);
+        llIngredient.addView(textView);
+        inpIngredient.setText("");
+
+    }
+
+    private void  addViewTag(){
+        if(inpTag.getText().toString().isEmpty()){
+            Toast.makeText(AddActivity.this, "Please add Tag.. !", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        TextView gb = new TextView(this);
+        TextView textView = new TextView(this);
+        textView.setBackgroundResource(R.drawable.tag);
+        textView.setPadding(15,5,15,5);
+
+        gb.setWidth(5);
+        textView.setText(inpTag.getText().toString());
+        llTag.addView(gb);
+        llTag.addView(textView);
+        inpTag.setText("");
+
     }
 
     private void SelectImage() {
