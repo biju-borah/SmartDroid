@@ -1,6 +1,5 @@
 package com.example.smartdroid.Adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +14,6 @@ import com.example.smartdroid.Model.Recipe;
 import com.example.smartdroid.R;
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 
 public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder>{
 
@@ -36,12 +34,15 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         holder.title.setText(recipes.get(position).getName());
-        View view = LayoutInflater.from(holder.tagLayout.getContext()).inflate(R.layout.tag,null,false);
+        View view = View.inflate(holder.tagLayout.getContext(),R.layout.tag,holder.tagLayout);
         for (String i:recipes.get(position).getTag()) {
 
             TextView tv = view.findViewById(R.id.tagName);
             tv.setText(i);
             System.out.println(i);
+            if(tv.getParent() != null) {
+                ((ViewGroup)tv.getParent()).removeView(tv); // <- fix
+            }
             holder.tagLayout.addView(tv);
         }
     }
