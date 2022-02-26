@@ -35,7 +35,7 @@ public class ShowDetailActivity extends AppCompatActivity {
         recipeName.setText(object.getName());
         shortDesc.setText(object.getShortDesc());
         authorName.setText(object.getAuthor());
-        Glide.with(this).load(object.getImgUrl()).into(imageView);
+        Glide.with(this).load(object.getImgUrl()).placeholder(R.drawable.loading).into(imageView);
 
         initializeStar(star);
     }

@@ -78,7 +78,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
 
         holder.tagLayout.addView(linearLayout);
 
-        Glide.with(holder.title.getContext()).load(recipes.get(position).getImgUrl()).into(holder.image);
+        Glide.with(holder.title.getContext()).load(recipes.get(position).getImgUrl()).placeholder(R.drawable.loading).into(holder.image);
         double finalAvg = avg;
         holder.card.setOnClickListener(new View.OnClickListener() {
             @Override

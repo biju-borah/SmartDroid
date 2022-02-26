@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 //        });
         Fragment home = new HomeFragment();
         Fragment search = new SearchFragment();
+        Fragment account = new AccountFragment();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.flFragment,home).commit();
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -51,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.search:
                         selectFrag = search;
                         break;
+                    case R.id.profile:
+                        selectFrag = account;
+
 
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.flFragment,selectFrag).commit();
