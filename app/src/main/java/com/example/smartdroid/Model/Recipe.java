@@ -1,8 +1,9 @@
 package com.example.smartdroid.Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Recipe {
+public class Recipe implements Serializable {
     String name, imgUrl, shortDesc, longDesc, author, videoUrl;
     ArrayList<String> rating, tag, ingredients;
 

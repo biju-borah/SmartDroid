@@ -10,12 +10,14 @@
     >
 
     <LinearLayout
+        android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:padding="10sp">
 
         <ImageView
+            android:id="@+id/recipeImgSmall"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@drawable/dummy_img"
@@ -28,6 +30,7 @@
             android:layout_weight="1"
             />
         <LinearLayout
+            android:id="@+id/plsWork"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -44,69 +47,6 @@
                 android:textColor="@color/heading"
                 />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="20sp"
-                    android:layout_height="20sp"
-                    android:src="@drawable/ic_start"
-                    android:layout_gravity="right"
-                    />
-                <ImageView
-                    android:layout_width="20sp"
-                    android:layout_height="20sp"
-                    android:src="@drawable/ic_start"
-                    android:layout_gravity="right"
-                    />
-                <ImageView
-                    android:layout_width="20sp"
-                    android:layout_height="20sp"
-                    android:src="@drawable/ic_start"
-                    android:layout_gravity="right"
-                    />
-                <ImageView
-                    android:layout_width="20sp"
-                    android:layout_height="20sp"
-                    android:src="@drawable/ic_start"
-                    android:layout_gravity="right"
-                    />
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/tagLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="right"
-                android:layout_marginTop="2sp">
-
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:background="@drawable/tag"-->
-<!--                    android:text="#tag1"-->
-<!--                    android:padding="5sp"-->
-<!--                    />-->
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:background="@drawable/tag"-->
-<!--                    android:text="#tag2"-->
-<!--                    android:layout_marginHorizontal="8sp"-->
-
-<!--                    android:padding="5dp"-->
-<!--                    />-->
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:background="@drawable/tag"-->
-<!--                    android:text="#tag3"-->
-<!--                    android:padding="5dp"-->
-<!--                    />-->
-            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 

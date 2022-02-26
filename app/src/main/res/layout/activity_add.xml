@@ -48,14 +48,14 @@
         android:hint="Name"
          />
     <EditText
-        android:id="@+id/shortDesc"
+        android:id="@+id/inpShortDesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:hint="Short Description"
         />
     <EditText
-        android:id="@+id/longDesc"
+        android:id="@+id/intLongDesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
