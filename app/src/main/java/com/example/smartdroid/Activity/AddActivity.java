@@ -17,9 +17,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.smartdroid.Model.Recipe;
+import com.example.smartdroid.Model.User;
 import com.example.smartdroid.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -39,7 +45,8 @@ public class AddActivity extends AppCompatActivity {
 
     private final int PICK_IMAGE_REQUEST = 22;
 
-    ArrayList<String> tag, ingredient;
+    ArrayList<String> tag = new ArrayList<>();
+    ArrayList<String> ingredient = new ArrayList<>();
 
     EditText inpIngredient, inpTag, inpShortDesc, inpLongDesc, inpName, inpUrl;
 
@@ -117,7 +124,7 @@ public class AddActivity extends AppCompatActivity {
 
         gb.setWidth(5);
         textView.setText(inpIngredient.getText().toString());
-        ingredient.add(inpIngredient.getText().toString());
+//        ingredient.add(inpIngredient.getText().toString());
         llIngredient.addView(gb);
         llIngredient.addView(textView);
         inpIngredient.setText("");
@@ -212,7 +219,7 @@ public class AddActivity extends AppCompatActivity {
                                                     Toast.LENGTH_SHORT)
                                             .show();
 
-                                    addFirestore();
+                                    addFirestore(uuid);
                                 }
                             })
 
@@ -245,11 +252,30 @@ public class AddActivity extends AppCompatActivity {
         }
     }
 
-    private void addFirestore(){
-        storageReference.child("images/" + uuid).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+    private void addFirestore(String uuid){
+        StorageReference storageRef = FirebaseStorage.getInstance().getReference();
+        StorageReference dateRef = storageRef.child("images/" + uuid);
+        storageRef.child("images/" + uuid).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                String generatedFilePath = uri.toString();
+                FirebaseFirestore db = db = FirebaseFirestore.getInstance();
+                CollectionReference dbUser = db.collection("Blog");
+                ArrayList<String> rating = new ArrayList<>();
+                rating.add("0");
+                Recipe recipe = new Recipe(inpName.getText().toString(),uri.toString(),inpShortDesc.getText().toString(),inpLongDesc.getText().toString(), FirebaseAuth.getInstance().getCurrentUser().getDisplayName(),inpUrl.getText().toString(),rating,tag,ingredient);
+                dbUser.add(recipe).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        startActivity(new Intent(AddActivity.this,ConfirmActivity.class));
+                        finish();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                    }
+                });
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -257,5 +283,7 @@ public class AddActivity extends AppCompatActivity {
                 // Handle any errors
             }
         });
+
+
     }
 }

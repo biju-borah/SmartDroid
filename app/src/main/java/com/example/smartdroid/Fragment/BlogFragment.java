@@ -72,15 +72,18 @@ public class BlogFragment extends Fragment {
                         return;
                     }
 
+                    ArrayList<Recipe> recipes = new ArrayList<>();
                     for(QueryDocumentSnapshot doc: task.getResult()){
-                        ArrayList<Recipe> recipes = new ArrayList<>();
+
                         Recipe recipe = doc.toObject(Recipe.class);
                         recipes.add(recipe);
-                        recipeAdapter = new RecipeAdapter(recipes);
-                        recyclerView.setAdapter(recipeAdapter);
-                        recipeAdapter.notifyDataSetChanged();
-                        return;
+
                     }
+                    recipeAdapter = new RecipeAdapter(recipes);
+                    recyclerView.setAdapter(recipeAdapter);
+                    recipeAdapter.notifyDataSetChanged();
+                    return;
+
 
                 }else{
                     Toast.makeText(getContext(),"Something went wrong !", Toast.LENGTH_SHORT).show();

@@ -1,6 +1,7 @@
 package com.example.smartdroid.Adapter;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Parcelable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -60,6 +62,14 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
             img.setMinimumWidth(50);
             img.setMinimumHeight(50);
             linearLayoutReturns.addView(img);
+        }
+
+        if((int)avg == 0){
+            TextView txt = new TextView(holder.title.getContext());
+            txt.setTextColor(ContextCompat.getColor(holder.title.getContext(),R.color.body_text2));
+            txt.setTypeface(txt.getTypeface(), Typeface.ITALIC);
+            txt.setText("no rating");
+            linearLayoutReturns.addView(txt);
         }
 
 

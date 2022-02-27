@@ -1,7 +1,9 @@
 package com.example.smartdroid.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -50,6 +52,13 @@ public class ShowDetailActivity extends AppCompatActivity {
             img.setMinimumHeight(50);
 
             starLayout.addView(img);
+        }
+        if(stars == 0){
+            TextView txt = new TextView(this);
+            txt.setTextColor(ContextCompat.getColor(this,R.color.body_text2));
+            txt.setTypeface(txt.getTypeface(), Typeface.ITALIC);
+            txt.setText("no rating");
+            starLayout.addView(txt);
         }
     }
 
