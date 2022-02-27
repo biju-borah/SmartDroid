@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,6 +20,8 @@ import com.example.smartdroid.Activity.OnBoardingActivity;
 import com.example.smartdroid.Adapter.RecipeAdapter;
 import com.example.smartdroid.Model.Recipe;
 import com.example.smartdroid.R;
+import com.example.smartdroid.ViewModel.BlogViewModel;
+import com.example.smartdroid.ViewModel.RecipeViewModel;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -38,6 +41,15 @@ public class BlogFragment extends Fragment {
     FloatingActionButton add;
     RecyclerView recyclerView;
     RecipeAdapter recipeAdapter;
+    BlogViewModel blogViewModel;
+
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        blogViewModel = new ViewModelProvider(this).get(BlogViewModel.class);
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -60,35 +72,14 @@ public class BlogFragment extends Fragment {
     }
 
     private void setView(){
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        CollectionReference dbRef = db.collection("Blog");
-        Query query = dbRef.whereEqualTo("author",FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
-        query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if(task.isSuccessful()){
-                    if(task.getResult().size() == 0){
-                        System.out.println("Here");
-                        return;
-                    }
 
-                    ArrayList<Recipe> recipes = new ArrayList<>();
-                    for(QueryDocumentSnapshot doc: task.getResult()){
+        blogViewModel.getLiveRecipeData().observe(getViewLifecycleOwner(),recipes -> {
 
-                        Recipe recipe = doc.toObject(Recipe.class);
-                        recipes.add(recipe);
-
-                    }
-                    recipeAdapter = new RecipeAdapter(recipes);
-                    recyclerView.setAdapter(recipeAdapter);
-                    recipeAdapter.notifyDataSetChanged();
-                    return;
+            recipeAdapter = new RecipeAdapter(recipes);
+            recyclerView.setAdapter(recipeAdapter);
+            recipeAdapter.notifyDataSetChanged();
 
 
-                }else{
-                    Toast.makeText(getContext(),"Something went wrong !", Toast.LENGTH_SHORT).show();
-                }
-            }
         });
     }
 }
